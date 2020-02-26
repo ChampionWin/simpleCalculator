@@ -1,0 +1,13 @@
+.optionDiv {
+    font-size: 30px; 
+}
+
+input {
+    width: 20px;
+    height: 20px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+label {
+    margin-left: 100px;
+}

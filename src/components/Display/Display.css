@@ -1,0 +1,40 @@
+.display {
+    margin-top: 20px;
+}
+.number1 {
+    text-align: center;
+    margin-left: 30px;
+    width: 50px;
+    height: 50px;
+}
+.number2 {
+    text-align: center;
+    margin-left: 40px;
+    width: 50px;
+    height: 50px;
+}
+.number3 {
+    text-align: center;
+    margin-left: 40px;
+    width: 50px;
+    height: 50px;
+}
+.option {
+    margin-left: 40px;
+    width: 50px;
+    height: 50px;
+}
+.result {
+    margin-left: 40px;
+    width: 50px;
+    height: 50px;
+}
+
+.div2 {
+    margin: 30px;
+}
+
+button {
+    margin: auto;
+    display: block;
+}
