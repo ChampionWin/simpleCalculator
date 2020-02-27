@@ -7,7 +7,6 @@ class Display extends React.Component {
             number1:"",
             number2:"",
             number3:"",
-            operator:"+"
         }
     }
     handleChange=(event) => {       
@@ -27,7 +26,7 @@ class Display extends React.Component {
             <div className="display" >
                 <div>
                   <input type="text" name="number1"  onChange={this.handleChange} className="number1" ></input>
-                  <label className="option" > {this.state.operator} </label>
+                  <label className="option" >  </label>
                   <input type="text" name="number2"  onChange={this.handleChange} className="number2" ></input>
                   <label className="result" >=</label>
                   <input  type="text" name="number3"  value={this.state.number3} className="number3" readOnly ></input>
