@@ -1,27 +1,17 @@
 import React from 'react';
 import './Option.css'
 class Option extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state={
-            operator:'='
-        }
-    }
-    checkBox = (op) => {
-        this.setState({operator: op})
-    }
     render() {
         return (
             <div className="optionDiv" >
-                <input type="checkbox" name="plus"  onClick={() => this.checkBox('+')} ></input>
-                <label >Plus</label><br></br>
-                <input type="checkbox" name="minus"  onClick={() => this.checkBox('-')} ></input>
-                <label >Minus</label><br></br>
-                <input type="checkbox" name="multiplication" onClick={() => this.checkBox('*')} ></input>
-                <label >Multiplication</label><br></br>
-                <input type="checkbox" name="division"  onClick={() => this.checkBox('/')} ></input>
-                <label >Division</label><br></br>
-                {this.state.operator}
+                <input type="radio" name="radio" defaultChecked  onClick={() => this.props.onchange("+")} ></input>
+                <label >Plus</label><br/>
+                <input type="radio" name="radio"  onClick={() => this.props.onchange("-")} ></input>
+                <label >Minus</label><br/>
+                <input type="radio" name="radio" onClick={() => this.props.onchange("*")} ></input>
+                <label >Multiplication</label><br/>
+                <input type="radio" name="radio"  onClick={() => this.props.onchange("/")} ></input>
+                <label >Division</label>
             </div>
         );
     }
