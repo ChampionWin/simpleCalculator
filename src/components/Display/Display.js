@@ -25,45 +25,53 @@ class Display extends React.Component {
         if(this.props.op === "+") {
             if(!this.state.number1 || !this.state.number2) {
                 this.setState({
-                error: " ",
+                error: "Input is incorrect",
                 number3: ""
                 })
             } else{
                 this.setState({
-                    number3:parseFloat(this.state.number1) + parseFloat(this.state.number2)
+                    number3:parseFloat(this.state.number1) + parseFloat(this.state.number2),
+                    error: ""
                 })
             }
             
         } else if(this.props.op === "-") {
             if(!this.state.number1 || !this.state.number2) {
                 this.setState({
-                error: " ",
+                error: "Input is incorrect",
                 number3: ""
                 })
             } else{
                 this.setState({
-                    number3:parseFloat(this.state.number1) - parseFloat(this.state.number2)
+                    number3:parseFloat(this.state.number1) - parseFloat(this.state.number2),
+                    error:""
                 })
             }   
         } else if(this.props.op === "*") {
             if(!this.state.number1 || !this.state.number2) {
                 this.setState({
-                error: " ",
+                error: "Input is incorrect",
                 number3: ""
                 })
             } else{
                 this.setState({
-                    number3:parseFloat(this.state.number1) * parseFloat(this.state.number2)
+                    number3:parseFloat(this.state.number1) * parseFloat(this.state.number2),
+                    error: ""
                 })
             }
             
         } else if(this.props.op === "/") {
             if(!this.state.number1 || !this.state.number2) {
                 this.setState({
-                error: " ",
+                error: "Input is incorrect ",
                 number3: ""
                 })
-            } else{
+            }else if(this.state.number2==="0") {
+                this.setState({
+                    error:"The expression has no meaning",
+                    number3:""
+                })
+            }else{
                 this.setState({
                     number3:parseFloat(this.state.number1) / parseFloat(this.state.number2)
                 })
@@ -81,7 +89,7 @@ class Display extends React.Component {
                   <label className="result" > = </label>
                   <input  type="text" name="number3"  value={this.state.number3} className="number3" readOnly ></input>
                 </div>
-                <div>
+                <div className="error">
                     {this.state.error}
                 </div>
                 <div className="div2" >
