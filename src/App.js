@@ -15,10 +15,13 @@ class App extends React.Component {
   }
   render() {
     return (
-    <div className="App">
+      <div className="App">
+        <div>
+          Calculator
+        </div>
       <Display op={this.state.operator } />
       <Option onchange={this.handleChange} />
-    </div>
+      </div>
   )}
 }
 

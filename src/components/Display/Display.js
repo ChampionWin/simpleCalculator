@@ -7,6 +7,7 @@ class Display extends React.Component {
             number1:"",
             number2:"",
             number3:"",
+            error:""
         }
     }
     componentDidUpdate(prevProps,prevState) {
@@ -22,25 +23,52 @@ class Display extends React.Component {
     }
     handleCalculate = () => {
         if(this.props.op === "+") {
-            this.setState({
-                number3:parseFloat(this.state.number1) + parseFloat(this.state.number2)
-            })
-        }
-
-        else if(this.props.op === "-") {
-            this.setState({
-                number3:parseFloat(this.state.number1) - parseFloat(this.state.number2)
-            })
-        }
-        else if(this.props.op === "*") {
-            this.setState({
-                number3:parseFloat(this.state.number1) * parseFloat(this.state.number2)
-            })
-        }
-        else if(this.props.op === "/") {
-            this.setState({
-                number3:parseFloat(this.state.number1) / parseFloat(this.state.number2)
-            })
+            if(!this.state.number1 || !this.state.number2) {
+                this.setState({
+                error: " ",
+                number3: ""
+                })
+            } else{
+                this.setState({
+                    number3:parseFloat(this.state.number1) + parseFloat(this.state.number2)
+                })
+            }
+            
+        } else if(this.props.op === "-") {
+            if(!this.state.number1 || !this.state.number2) {
+                this.setState({
+                error: " ",
+                number3: ""
+                })
+            } else{
+                this.setState({
+                    number3:parseFloat(this.state.number1) - parseFloat(this.state.number2)
+                })
+            }   
+        } else if(this.props.op === "*") {
+            if(!this.state.number1 || !this.state.number2) {
+                this.setState({
+                error: " ",
+                number3: ""
+                })
+            } else{
+                this.setState({
+                    number3:parseFloat(this.state.number1) * parseFloat(this.state.number2)
+                })
+            }
+            
+        } else if(this.props.op === "/") {
+            if(!this.state.number1 || !this.state.number2) {
+                this.setState({
+                error: " ",
+                number3: ""
+                })
+            } else{
+                this.setState({
+                    number3:parseFloat(this.state.number1) / parseFloat(this.state.number2)
+                })
+            }
+            
         }
     }
     render() {
@@ -52,6 +80,9 @@ class Display extends React.Component {
                   <input type="text" name="number2"  onChange={this.handleChange} className="number2" ></input>
                   <label className="result" > = </label>
                   <input  type="text" name="number3"  value={this.state.number3} className="number3" readOnly ></input>
+                </div>
+                <div>
+                    {this.state.error}
                 </div>
                 <div className="div2" >
                     <button onClick={this.handleCalculate} >Calculate</button>
